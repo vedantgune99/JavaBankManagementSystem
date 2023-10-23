@@ -48,7 +48,8 @@ public class StartUpFrame extends javax.swing.JFrame {
         jLabel3.setText("USER PIN :");
 
         userPin.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
-        userPin.setText("jPasswordField1");
+        userPin.setText("upin");
+        userPin.setToolTipText("");
         userPin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userPinActionPerformed(evt);
@@ -56,7 +57,7 @@ public class StartUpFrame extends javax.swing.JFrame {
         });
 
         userID.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
-        userID.setText("Enter your Card No.");
+        userID.setText("Enter your UID");
         userID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userIDActionPerformed(evt);

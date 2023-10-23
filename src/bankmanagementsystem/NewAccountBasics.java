@@ -4,12 +4,15 @@
  */
 package bankmanagementsystem;
 
+import javax.swing.JOptionPane;
+import bankmanagementsystem.JDBC_Connect;
+
 /**
  *
  * @author vedant
  */
 public class NewAccountBasics extends javax.swing.JFrame {
-    private int fnumber = (int)(Math.random() * 100);
+    private int fnumber = (int)(10 % Math.random() * 1000);
     /**
      * 
      * Creates new form NewAccountBasics
@@ -50,6 +53,8 @@ public class NewAccountBasics extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        aadharNo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,20 +65,26 @@ public class NewAccountBasics extends javax.swing.JFrame {
         formNo.setForeground(new java.awt.Color(0, 102, 0));
         formNo.setText("Form No : ");
 
+        jLabel2.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jLabel2.setText("Name :");
 
+        jLabel3.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jLabel3.setText("Email ID :");
 
+        jLabel4.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jLabel4.setText("Mobile No :");
 
+        jLabel5.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jLabel5.setText("D. O. B :");
 
+        jLabel6.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jLabel6.setText("Gender:");
 
         phone.setText("+91 ");
 
         dob.setText("DD / MM / YYYY");
 
+        buttonGroup1.add(genderM);
         genderM.setSelected(true);
         genderM.setText("Male");
         genderM.addActionListener(new java.awt.event.ActionListener() {
@@ -82,8 +93,15 @@ public class NewAccountBasics extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(genderF);
         genderF.setText("Female");
+        genderF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                genderFActionPerformed(evt);
+            }
+        });
 
+        buttonGroup1.add(genderO);
         genderO.setText("Other");
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
@@ -91,6 +109,11 @@ public class NewAccountBasics extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Next ");
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setFont(new java.awt.Font("Liberation Sans", 1, 16)); // NOI18N
@@ -114,6 +137,15 @@ public class NewAccountBasics extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel8.setText("Aadhar No : ");
+
+        aadharNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aadharNoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,39 +155,42 @@ public class NewAccountBasics extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(70, 70, 70))
             .addGroup(layout.createSequentialGroup()
+                .addGap(139, 139, 139)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
+                    .addComponent(jLabel8)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel6))
+                            .addGap(36, 36, 36)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(genderM)
+                                    .addGap(32, 32, 32)
+                                    .addComponent(genderF)
+                                    .addGap(30, 30, 30)
+                                    .addComponent(genderO))
+                                .addComponent(dob, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
+                                .addComponent(phone)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2)
                             .addComponent(jLabel7)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(jLabel6))
-                                .addGap(36, 36, 36)
+                                .addComponent(jLabel3)
+                                .addGap(51, 51, 51)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(genderM)
-                                        .addGap(32, 32, 32)
-                                        .addComponent(genderF)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(genderO))
-                                    .addComponent(dob, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
-                                    .addComponent(name)
+                                    .addComponent(formNo)
+                                    .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
                                     .addComponent(email)
-                                    .addComponent(phone)))
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(306, 306, 306)
-                        .addComponent(formNo)))
+                                    .addComponent(aadharNo))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -173,6 +208,13 @@ public class NewAccountBasics extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel8))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(aadharNo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -187,13 +229,13 @@ public class NewAccountBasics extends javax.swing.JFrame {
                     .addComponent(genderM)
                     .addComponent(genderF)
                     .addComponent(genderO))
-                .addGap(61, 61, 61)
+                .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(122, 122, 122)
+                .addGap(62, 62, 62)
                 .addComponent(jLabel7)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -213,6 +255,7 @@ public class NewAccountBasics extends javax.swing.JFrame {
         genderM.setSelected(true);
         genderF.setSelected(false);
         genderO.setSelected(false);
+        dob.setText("DD / MM / YYYY");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -222,6 +265,40 @@ public class NewAccountBasics extends javax.swing.JFrame {
         setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        String n =name.getText();
+        String e = email.getText();
+        String a = aadharNo.getText();
+        String p =phone.getText();
+        String d = dob.getText();
+        
+        String g = "Male";
+        if (genderM.isSelected()){g="Male";}
+        if (genderF.isSelected()){g="Female";}
+        if (genderO.isSelected()){g="Others";}
+        
+        if (n.trim().equals("") || e.trim().equals("") || d.trim().equals("") || p.trim().equals("") || a.trim().equals("")){
+            JOptionPane.showMessageDialog(null, "Invalid Data, Please fill all the details carefully!");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "User record created successfully!");
+            
+            new AccountFinanceDetails(fnumber, n, e, a, p, d, g).setVisible(true);
+            setVisible(false);
+            dispose();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void genderFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genderFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_genderFActionPerformed
+
+    private void aadharNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aadharNoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_aadharNoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,6 +336,7 @@ public class NewAccountBasics extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField aadharNo;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField dob;
     private javax.swing.JTextField email;
@@ -276,6 +354,7 @@ public class NewAccountBasics extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField name;
     private javax.swing.JTextField phone;
     // End of variables declaration//GEN-END:variables
