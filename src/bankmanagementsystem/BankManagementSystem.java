@@ -3,18 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package bankmanagementsystem;
-
 /**
  *
  * @author vedant
  */
 public class BankManagementSystem {
-
+       
+    static int x = 1;
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+//    public static void main(String[] args) {
+//        // TODO code application logic here
+//        
+//        
+//      
+//    }
     
 }
