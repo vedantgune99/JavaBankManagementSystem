@@ -4,6 +4,13 @@
  */
 package bankmanagementsystem;
 
+import java.awt.HeadlessException;
+import javax.swing.JOptionPane;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author vedant
@@ -171,8 +178,59 @@ public class StartUpFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        // check if database contains the values / not
-        
+        // check if uid exists in table?
+        // check if uid and password entered are correct or not
+        // if true then log in open dashboard
+        // otherwise, show message dialog
+        String uid = userID.getText();
+        String upin = userPin.getText();
+
+        Boolean i = JDBC_Connect.valExists(uid);
+        if (i) {
+            ResultSet userDetails = JDBC_Connect.connectJDBC("SELECT * FROM ACCOUNTS WHERE UID=? AND UPIN=?;", uid, upin);
+
+            try {
+                if (userDetails.next()) { // Move the cursor to the first row
+                    String retrievedUID = userDetails.getString("UID");
+                    String retrievedUPIN = userDetails.getString("UPIN");
+                    
+                    if (retrievedUID.equals(uid) && retrievedUPIN.equals(upin)) {
+                        // Open dashboard or perform other actions here
+                        JOptionPane.showMessageDialog(null, "User logged in successfully!");
+                        
+                        new Dashboard(retrievedUID, userDetails.getString("name")).setVisible(true);
+                        setVisible(false);
+                        dispose();
+                        
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Wrong credentials!");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "User doesn't exist!\nPlease check your UID & UPIN carefully");
+                    new StartUpFrame().setVisible(true);
+                    setVisible(false);
+                    dispose();
+                }
+            } catch (HeadlessException | SQLException e) {
+                System.out.println(e);
+            } finally {
+                try {
+                    if (userDetails != null) {
+                        userDetails.close();
+                    }
+                    // Close other resources (PreparedStatement, Connection) here if necessary
+                } catch (SQLException e) {
+                    System.out.println(e);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "User account doesn't exist!\nPlease check your UID carefully");
+            new StartUpFrame().setVisible(true);
+            setVisible(false);
+            dispose();
+    }
+
+  
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

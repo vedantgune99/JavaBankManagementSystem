@@ -5,9 +5,11 @@
         <group>
             <file>file:/home/vedant/NetBeansProjects/BankManagementSystem/src/bankmanagementsystem/JDBC_Connect.java</file>
             <file>file:/home/vedant/NetBeansProjects/BankManagementSystem/src/bankmanagementsystem/StartUpFrame.java</file>
-            <file>file:/home/vedant/NetBeansProjects/BankManagementSystem/src/bankmanagementsystem/BankManagementSystem.java</file>
+            <file>file:/home/vedant/NetBeansProjects/BankManagementSystem/src/bankmanagementsystem/Dashboard.java</file>
             <file>file:/home/vedant/NetBeansProjects/BankManagementSystem/src/bankmanagementsystem/NewAccountBasics.java</file>
             <file>file:/home/vedant/NetBeansProjects/BankManagementSystem/src/bankmanagementsystem/AccountFinanceDetails.java</file>
+            <file>file:/home/vedant/NetBeansProjects/BankManagementSystem/src/bankmanagementsystem/Transaction.java</file>
+            <file>file:/home/vedant/NetBeansProjects/BankManagementSystem/src/bankmanagementsystem/ResetUPIN.java</file>
         </group>
     </open-files>
 </project-private>

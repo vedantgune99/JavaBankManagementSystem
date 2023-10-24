@@ -261,7 +261,7 @@ public class AccountFinanceDetails extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         upinVal = JOptionPane.showInputDialog(this, "Enter secret UPIN : ");
-        if (upinVal.trim().equals("") || upinVal.trim().length > 6){
+        if (upinVal.trim().equals("") || upinVal.trim().length() > 6 || upinVal.trim().length() < 4){
             JOptionPane.showMessageDialog(null, "Invalid UPIN, UPIN should be 4 - 6 chars in length");
         }
         
