@@ -51,6 +51,6 @@ The Java Bank Management System Application is a desktop application developed u
 
 ## Feedback
 
-We welcome your feedback! If you encounter any issues or have suggestions for improvement, please feel free to create an issue or reach out to the project maintainers.
+I welcome your feedback! If you encounter any issues or have suggestions for improvement, please feel free to create an issue or reach out to the project me at vedantgune@gmail.com.
 
 Happy banking!
