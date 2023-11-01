@@ -44,11 +44,10 @@ The Java Bank Management System Application is a desktop application developed u
 
 ![Landing Page / Account Login](./images/1.png)
 ![Account Creation](./images/2.png)
-![Account Login](screenshot2.png)
 ![Dashboard](./images/13.png)
 ![Money Transfer](./images/18.png)
 ![Account Balance Inquiry](./images/14.png)
-![UPIN Reset](s./images/8.png)
+![UPIN Reset](./images/8.png)
 
 ## Feedback
 
