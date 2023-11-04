@@ -6,6 +6,8 @@ package bankmanagementsystem;
 
 import javax.swing.JOptionPane;
 import bankmanagementsystem.JDBC_Connect;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -35,6 +37,7 @@ public class NewAccountBasics extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jCalendar1 = new com.toedter.calendar.JCalendar();
         jLabel1 = new javax.swing.JLabel();
         formNo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -46,7 +49,6 @@ public class NewAccountBasics extends javax.swing.JFrame {
         name = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
         phone = new javax.swing.JTextField();
-        dob = new javax.swing.JTextField();
         genderM = new javax.swing.JRadioButton();
         genderF = new javax.swing.JRadioButton();
         genderO = new javax.swing.JRadioButton();
@@ -55,6 +57,7 @@ public class NewAccountBasics extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         aadharNo = new javax.swing.JTextField();
+        dob = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,8 +85,6 @@ public class NewAccountBasics extends javax.swing.JFrame {
 
         phone.setText("+91 ");
 
-        dob.setText("DD / MM / YYYY");
-
         buttonGroup1.add(genderM);
         genderM.setSelected(true);
         genderM.setText("Male");
@@ -108,7 +109,7 @@ public class NewAccountBasics extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Liberation Sans", 1, 16)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Next ");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -119,7 +120,7 @@ public class NewAccountBasics extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Liberation Sans", 1, 16)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Clear");
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -130,7 +131,7 @@ public class NewAccountBasics extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Liberation Sans", 1, 16)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Previous");
-        jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -145,6 +146,8 @@ public class NewAccountBasics extends javax.swing.JFrame {
                 aadharNoActionPerformed(evt);
             }
         });
+
+        dob.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,8 +176,8 @@ public class NewAccountBasics extends javax.swing.JFrame {
                                     .addComponent(genderF)
                                     .addGap(30, 30, 30)
                                     .addComponent(genderO))
-                                .addComponent(dob, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
-                                .addComponent(phone)))
+                                .addComponent(phone, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
+                                .addComponent(dob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2)
                             .addComponent(jLabel7)
@@ -219,10 +222,13 @@ public class NewAccountBasics extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dob, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(dob, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -249,13 +255,14 @@ public class NewAccountBasics extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        Date date = new Date();
         name.setText("");
         email.setText("");
         phone.setText("+91 ");
         genderM.setSelected(true);
         genderF.setSelected(false);
         genderO.setSelected(false);
-        dob.setText("DD / MM / YYYY");
+        dob.setDateFormatString("01/01/2023");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -273,20 +280,23 @@ public class NewAccountBasics extends javax.swing.JFrame {
         String e = email.getText();
         String a = aadharNo.getText();
         String p =phone.getText();
-        String d = dob.getText();
+        Date date = dob.getDate();
+        SimpleDateFormat formattedDate = new SimpleDateFormat("dd-MM-yyyy");
+        String d = formattedDate.format(date);
+        System.out.println(d);
         
         String g = "Male";
         if (genderM.isSelected()){g="Male";}
         if (genderF.isSelected()){g="Female";}
         if (genderO.isSelected()){g="Others";}
         
-        if (n.trim().equals("") || e.trim().equals("") || d.trim().equals("") || p.trim().equals("") || a.trim().equals("")){
+        if (n.trim().equals("") || e.trim().equals("") || p.trim().equals("") || a.trim().equals("")){
             JOptionPane.showMessageDialog(null, "Invalid Data, Please fill all the details carefully!");
         }
         else{
             JOptionPane.showMessageDialog(null, "User record created successfully!");
             
-            new AccountFinanceDetails(fnumber, n, e, a, p, d, g).setVisible(true);
+            new AccountFinanceDetails(fnumber, n, e, a, p, d.toString(), g).setVisible(true);
             setVisible(false);
             dispose();
         }
@@ -338,7 +348,7 @@ public class NewAccountBasics extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField aadharNo;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JTextField dob;
+    private com.toedter.calendar.JDateChooser dob;
     private javax.swing.JTextField email;
     private javax.swing.JLabel formNo;
     private javax.swing.JRadioButton genderF;
@@ -347,6 +357,7 @@ public class NewAccountBasics extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

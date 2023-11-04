@@ -292,7 +292,6 @@ public class AccountFinanceDetails extends javax.swing.JFrame {
 
     private void uidLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uidLabelMouseClicked
         // TODO add your handling code here:
-        
         String labelText = uidLabel.getText();
         StringSelection stringSelection = new StringSelection(labelText);
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();

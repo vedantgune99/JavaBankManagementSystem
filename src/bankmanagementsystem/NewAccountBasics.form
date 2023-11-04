@@ -7,6 +7,8 @@
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.ButtonGroup()"/>
       </AuxValues>
     </Component>
+    <Component class="com.toedter.calendar.JCalendar" name="jCalendar1">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -57,8 +59,8 @@
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="genderO" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="dob" pref="363" max="32767" attributes="0"/>
-                              <Component id="phone" alignment="0" max="32767" attributes="0"/>
+                              <Component id="phone" alignment="0" pref="363" max="32767" attributes="0"/>
+                              <Component id="dob" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -119,10 +121,15 @@
                   <Component id="phone" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="dob" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="dob" min="-2" pref="40" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -214,11 +221,6 @@
     <Component class="javax.swing.JTextField" name="phone">
       <Properties>
         <Property name="text" type="java.lang.String" value="+91 "/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="dob">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="DD / MM / YYYY"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="genderM">
@@ -330,6 +332,11 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aadharNoActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="dob">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

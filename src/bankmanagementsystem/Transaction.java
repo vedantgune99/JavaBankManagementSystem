@@ -6,6 +6,10 @@ package bankmanagementsystem;
 
 import bankmanagementsystem.JDBC_Connect;
 import javax.swing.JOptionPane;
+import java.util.Date;  
+import java.text.SimpleDateFormat;  
+
+
 
 /**
  *
@@ -150,6 +154,8 @@ public class Transaction extends javax.swing.JFrame {
         // TODO add your handling code here:
         String recipient = rUID.getText();
         String amount = amt.getText();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+        Date date = new Date();  
         
         if(!JDBC_Connect.valExists(recipient)){
                 JOptionPane.showMessageDialog(null, "Invalid Recipient UID! Transaction failed!");
@@ -161,6 +167,7 @@ public class Transaction extends javax.swing.JFrame {
         else {
             JDBC_Connect.transaction(uidVal, recipient, amount);
             JOptionPane.showMessageDialog(rootPane, "Transaction Successfull!\n" + amount + "Credited from you account!");
+            new Reciept(uidVal, recipient, amount, formatter.format(date)).setVisible(true);
             setVisible(false);
             dispose();
         }
