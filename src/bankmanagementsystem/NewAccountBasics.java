@@ -290,7 +290,7 @@ public class NewAccountBasics extends javax.swing.JFrame {
         if (genderF.isSelected()){g="Female";}
         if (genderO.isSelected()){g="Others";}
         
-        if (n.trim().equals("") || e.trim().equals("") || p.trim().equals("") || a.trim().equals("")){
+        if (n.trim().equals("") || e.trim().equals("") || p.trim().equals("") || p.trim().length() <= 13 || a.trim().equals("")){
             JOptionPane.showMessageDialog(null, "Invalid Data, Please fill all the details carefully!");
         }
         else{

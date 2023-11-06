@@ -30,6 +30,7 @@ public class Transaction extends javax.swing.JFrame {
     public Transaction(String uid) {
         initComponents();
         
+        this.setTitle("Virtual Transaction!");
         uidVal = uid;
         uidLabel.setText(uidLabel.getText() + uidVal);
         balanceLabel.setText(balanceLabel.getText() + JDBC_Connect.getBalance(uidVal));
@@ -166,7 +167,7 @@ public class Transaction extends javax.swing.JFrame {
         
         else {
             JDBC_Connect.transaction(uidVal, recipient, amount);
-            JOptionPane.showMessageDialog(rootPane, "Transaction Successfull!\n" + amount + "Credited from you account!");
+            JOptionPane.showMessageDialog(rootPane, "Transaction Successfull!\n" + amount + " credited from you account!");
             new Reciept(uidVal, recipient, amount, formatter.format(date)).setVisible(true);
             setVisible(false);
             dispose();

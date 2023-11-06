@@ -72,6 +72,22 @@ public class JDBC_Connect {
 
         return rowsAffected;
     }
+    
+    public static int executeMultiUpdateJDBC(String query, String val1, String val2, String val3) {
+        int rowsAffected = 0;
+        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDB", "vedant", "vedant@99")) {
+            PreparedStatement st = con.prepareStatement(query);
+            st.setString(1, val1);
+            st.setString(2, val2);
+            st.setString(3, val3);
+
+            rowsAffected = st.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+        return rowsAffected;
+    }
 
     
     
@@ -213,4 +229,24 @@ public class JDBC_Connect {
         }
     }
     
+    
+    
+    public static ResultSet findUser(String uid){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankDB", "vedant", "vedant@99");
+            con.setAutoCommit(true); // Check if this line is not explicitly setting auto-commit to false
+            
+            // Insert data into the database
+            PreparedStatement st = con.prepareStatement("SELECT * FROM ACCOUNTS WHERE UID=?");
+            st.setString(1, uid);
+            ResultSet rs = st.executeQuery();            
+            return rs;
+        }
+        
+        catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex);
+        }
+        return null;
+    }
 }
